@@ -1,0 +1,74 @@
+<a href="portifolio.html">Retornar para Portfólio</a>
+<br>
+<br>
+
+import random
+import tkinter as tk
+from tkinter import messagebox
+import time
+import threading
+
+rifa = {}
+numero_sorteado = None
+
+def adicionar_participante():
+    nome = nome_entry.get()
+    numeros = numeros_entry.get().split()
+    numeros = [int(numero) for numero in numeros]
+    rifa[nome] = numeros
+    resultado_label.config(text=f"{nome} escolheu os números {', '.join(map(str, numeros))}.")
+
+def sortear_numero():
+    global numero_sorteado
+    contador_label.config(text="Contagem regressiva: 5")
+    for i in range(5, 0, -1):
+        contador_label.config(text=f"Contagem regressiva: {i}")
+        time.sleep(1)
+    numero_sorteado = random.randint(1, 100)
+    nomes_vencedores = [nome for nome, numeros in rifa.items() if numero_sorteado in numeros]
+    if nomes_vencedores:
+        resultado = f"Número sorteado: {numero_sorteado}\nNome(s) do(s) vencedor(es): {', '.join(nomes_vencedores)}"
+    else:
+        resultado = f"Número sorteado: {numero_sorteado}\nNenhuma pessoa escolheu este número."
+    resultado_label.config(text=resultado)
+
+janela = tk.Tk()
+janela.title("RIFA PERFUME MASCULINO OU FEMININO")
+janela.configure(bg="white")
+
+nome_label = tk.Label(janela, text="NOME DOS PARTICIPANTES:", fg="black", bg="white")
+nome_label.config(font=("Arial", 16))
+nome_label.pack()
+
+nome_entry = tk.Entry(janela)
+nome_entry.pack()
+
+numeros_label = tk.Label(janela, text="Números escolhidos (separados por espaço):", fg="purple", bg="white")
+numeros_label.config(font=("Arial", 16))
+numeros_label.pack()
+
+numeros_entry = tk.Entry(janela)
+numeros_entry.pack()
+
+contador_label = tk.Label(janela, text="", fg="red", bg="blue")
+contador_label.config(font=("Arial", 16))
+contador_label.pack()
+
+resultado_label = tk.Label(janela, text="AQUI VAI APARECER O UM NÚMERO ALEATÓRIO DE 1 ATÉ 100", fg="black", bg="white")
+resultado_label.config(font=("Arial", 16))
+resultado_label.pack()
+
+adicionar_botao = tk.Button(janela, text="Adicionar Participante", command=adicionar_participante, fg="purple")
+adicionar_botao.config(width=20, height=2)
+adicionar_botao.pack()
+
+sortear_botao = tk.Button(janela, text="Sortear Número", command=lambda: threading.Thread(target=sortear_numero).start(), fg="green")
+sortear_botao.config(width=20, height=2)
+sortear_botao.pack()
+
+sair_botao = tk.Button(janela, text="Sair", command=janela.quit, fg="red")
+sair_botao.config(width=20, height=2)
+sair_botao.pack()
+
+janela.geometry("800x600")
+janela.mainloop()

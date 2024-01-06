@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="logoluan.jpeg" type="image/x-icon">
+    <title>Meu Portfólio</title>
+    <link rel="stylesheet" href="portifolio.css">
+</head>
+
+<body>
+    <h1 id="blueh1">Meu Portfólio</h1>
+    <p>Um projeto que trabalhei e deu muita dor de cabeça por eu ser novo na área de desenvolvimento, mas fiz com bastante atenção para que fosse algo bem seguro foi um sistema de sortear rifas.</p>
+    <p>O código faz um sorteio com números de um a cem, onde cada número está relacionado a um nome que estão armazenados em uma variável que trabalha com um dicionário.</p>
+    <br>
+    <hr>
+    <img src="ImagensDaRifa/Screenshot_20231126_194934_Pydroid 3.jpg" alt="Interface" width="190" height="140">
+    <hr>
+    <br>
+    <p>Utilizei as anotações que fiz no curso para criar um gerador de números aleatórios usando a biblioteca random.</p>
+    <br>
+    <p>Estas são as bibliotecas usadas no sistema</p>
+    <table border="1">
+        <tr style="color: blue">
+            <th>Random</th>
+            <th>time</th>
+            <th>tkinter</th>
+            <th>threading</th>
+        </tr>
+        <tr>
+            <td>A biblioteca `random` em Python oferece funcionalidades para gerar números aleatórios e realizar operações baseadas em aleatoriedade.</td>
+            <td>A biblioteca time em Python permite manipular datas, horários e realizar operações relacionadas ao tempo. </td>
+            <td>Tkinter é a biblioteca padrão de interface gráfica (GUI) para o Python, permitindo criar janelas, botões, entradas e outros elementos de interface.</td>
+            <td>A biblioteca `threading` em Python permite a execução simultânea de várias partes do programa (threads), útil para tarefas concorrentes e paralelas.</td>
+        </tr>
+    </table>
+    <h2>Algumas Funções do Sistema</h2>
+    <br><br>
+    <img src="ImagensDaRifa/codigo1.jpg" alt="Começo do código" width="190" height="150">
+    <br><br>
+    <h3>Variáveis</h3>
+    <p># Dicionário para armazenar nomes e números escolhidos:
+        <br><br>rifa = {}
+        <br><br># Variável para armazenar o número sorteado:
+        <br><br>numero_sorteado = None</p>
+    <br>
+    <h3>Função para armazenar nome e números</h3>
+    <p># Função para adicionar nomes e números escolhidos:
+        <br><br>def adicionar_participante():
+        <br>    nome = nome_entry.get()
+        <br>    numeros = numeros_entry.get().split()
+        <br>    numeros = [int(numero) for numero in numeros]
+        <br>    rifa[nome] = numeros
+        <br>    resultado_label.config(text=f"{nome} escolheu os números {', '.join(map(str, numeros))}.")
+    </p>
+    <br><br>
+    <h3>Função que armazena os nomes e números</h3>
+    <p># Função para realizar o sorteio e mostrar o resultado:
+        <br><br>def sortear_numero():
+        <br>    global numero_sorteado
+        <br>    contador_label.config(text="Contagem regressiva: 5")
+        <br>    for i in range(5, 0, -1):
+        <br>        contador_label.config(text=f"Contagem regressiva: {i}")
+        <br>        time.sleep(1)
+        <br>    numero_sorteado = random.randint(1, 100)
+        <br>    nomes_vencedores = [nome for nome, numeros in rifa.items() if numero_sorteado in numeros]
+        <br>    if nomes_vencedores:
+        <br>        resultado = f"Número sorteado: {numero_sorteado}\nNome(s) do(s) vencedor(es): {', '.join(nomes_vencedores)}"
+        <br>    else:
+        <br>        resultado = f"Número sorteado: {numero_sorteado}\nNenhuma pessoa escolheu este número."
+        <br>    resultado_label.config(text=resultado)
+    </p>
+    <br>
+    <p># Para conferir o restante do código:</p>
+    <a href="rifa.text">Ver código do projeto.</a>
+    <br><br>
+    <p>Não é um projeto complexo demais, e nem o mais interessante, porém eu utilizei a tecnologia a meu favor. Eu entendi que podemos usar as tecnologias disponíveis às nossas necessidades, mesmo que sejam pequenas e simples. Além de praticar muito e quebrar a cabeça tentando resolver os bugs, eu estava aprendendo e aplicando.</p>
+    <p>Aprendi sobre bibliotecas, sobre como criar e chamar uma função, sobre identação do código (algo que apanhei muito), mas mesmo com as dificuldades eu me esforcei e o momento de rifar foi incrível.</p>
+    <p>Para chegar no nível hard do negócio, temos que ficar 1% mais inteligente e assim alcançar a nossa melhor versão!</p>
+    <br><br>
+    <hr>
+    <details>
+        <summary>Voltar a página principal</summary>
+       <p><a style="color:green" href="index.html">Voltar para a página principal.</a></p>
+    </details><br><br>
+    
+    <!-- tag <b> negrito</b> -->
+</body>
+
+</html>

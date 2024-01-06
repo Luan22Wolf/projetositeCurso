@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="logoluan.jpeg" type="image/x-icon">
+    <title>Meus Contatos alternativos</title>
+    <link rel="stylesheet" href="contato.css">    
+</head>
+<body>
+    <h1>Meus Contatos Alternativos</h1>
+    <h2>Instagram </h2>
+    <p>Meu contato direto para o <a id="instagramLink" href="https://instagram.com/l_dg2112?igshid=MTNiYzNiMzkwZA==">Instagram</a></p>
+    <br>
+    <br>
+    <h2>WhatsApp</h2>
+    <p>Meu contato direto para <a id="whatsappLink" href="https://wa.me/5534992146831">WhatsApp</a></p>
+    <br>
+    <br>        
+    <h2>Telefone secundário</h2>
+    <p>Meu contato direto para <a id="numero" href="tel:34992396291">34 992396291</a></p>
+    <br>
+    <br>
+    <script>
+        // Script JavaScript para interações ao passar o mouse sobre os links
+        const instagramLink = document.getElementById('instagramLink');
+        const whatsappLink = document.getElementById('whatsappLink');
+
+        instagramLink.addEventListener('mouseover', function() {
+            this.style.color = 'blue'; });
+
+        instagramLink.addEventListener('mouseout', function() {
+            this.style.color = ''; });
+
+        whatsappLink.addEventListener('mouseover', function() {
+            this.style.color = 'blue'; });        
+        whatsappLink.addEventListener('mouseout', function() {
+    this.style.color = ''; // Restaura a cor quando o mouse sai do link
+});
+    </script>
+    <details>
+        <summary>Voltar a página principal</summary>
+       <p><a style="color:rgb(26, 176, 26)" href="index.html">Voltar para a página principal.</a></p>
+    </details>
+</body>
+</html>

@@ -1,0 +1,46 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.0;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
+    text-align: center;
+}
+
+#blueh1 {
+    color: blue;
+}
+
+table {
+    width: 80%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+ /*   width: 45%;*/
+ /*   margin: 5px;*/
+    
+}
+
+/* Estilo para as imagens */
+img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+    padding: 5px;
+}
+
+summary {
+  background-color:#ff2b35;
+  padding: 10px;
+  margin:10%;
+}
+p {
+    margin-bottom: 10px;
+}
+
+h2, h3 {
+    color: #444;
+    margin-bottom: 15px;
+}
